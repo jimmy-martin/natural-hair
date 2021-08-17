@@ -94,6 +94,10 @@ body {
     padding: 5px;
 }
 
+.btn:focus{
+    outline-style: none;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;

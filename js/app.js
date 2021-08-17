@@ -1,12 +1,5 @@
 const app = {
 
-    products: [
-        'FRUCTIS HAIR FOOD Banane',
-        'FRUCTIS HAIR FOOD Baies de goji',
-        'FRUCTIS HAIR FOOD Macadamia',
-        'FRUCTIS HAIR FOOD Papaye',
-    ],
-
     init: function () {
         let product1ButtonElement = document.querySelector('#product1-btn');
         let product2ButtonElement = document.querySelector('#product2-btn');
@@ -54,7 +47,9 @@ const app = {
         let currentProductElement = myButton.closest('.product');
         document.querySelector('.list').removeChild(currentProductElement);
 
-    }
+    },
+
+    //TODO cacher 'Ma liste' quand je n'ai pas d'éléments dans ma liste
 };
 
-document.addEventListener('DOMContentLoaded', app.init)
+document.addEventListener('DOMContentLoaded', app.init);
