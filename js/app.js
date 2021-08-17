@@ -33,39 +33,18 @@ const app = {
         myProductBtnElement.addEventListener('click', app.handleListProductBtnClick);
 
         // Check if product is already in the list
-        if (app.products.indexOf(myProduct.querySelector('.product-title').textContent) > -1){
+        let isSuccess;
+        if (app.products.indexOf(myProduct.querySelector('.product-title').textContent) > -1) {
             console.log('Cet article est déjà dans la liste');
-            let isAddElement = currentProductElement.querySelector('.product-is-add');
-            isAddElement.textContent = 'Le produit est déjà dans la liste !';
-            isAddElement.style.backgroundColor = '#e82416';
-            isAddElement.style.color = 'black';
-            isAddElement.style.padding = '4px';
-            isAddElement.style.display = 'block';
-            isAddElement.style.opacity = 1;
-            (function fade() {
-                if ((isAddElement.style.opacity -= .1) < 0) {
-                    isAddElement.style.display = 'none';
-                } else {
-                    setTimeout(fade, 300)
-                }
-            })();
+            isSuccess = false;
+            app.displaySuccess(isSuccess, currentProductElement);
         } else {
             app.products.push(myProduct.querySelector('.product-title').textContent);
             document.querySelector('.list').appendChild(myProduct);
-    
-            let isAddElement = currentProductElement.querySelector('.product-is-add');
-            isAddElement.textContent = 'Produit ajouté à votre liste !';
-            isAddElement.style.display = 'block';
-            isAddElement.style.opacity = 1;
-            (function fade() {
-                if ((isAddElement.style.opacity -= .1) < 0) {
-                    isAddElement.style.display = "none";
-                } else {
-                    setTimeout(fade, 300)
-                }
-            })();
+            isSuccess = true;
+            app.displaySuccess(isSuccess, currentProductElement);
             document.querySelector('.list-container').style.display = 'block';
-    
+
             app.refreshListCount();
         }
     },
@@ -88,6 +67,39 @@ const app = {
         let listCount = document.querySelector('#list-count');
         listCount.textContent = document.querySelector('.list').getElementsByTagName('div').length;
     },
+
+    displaySuccess: function (isSucceed, currentProduct) {
+        let isAddElement = currentProduct.querySelector('.product-is-add');
+
+        if (isSucceed) {
+            isAddElement.textContent = 'Produit ajouté à votre liste !';
+            isAddElement.style.backgroundColor = '#2deb5c57';
+            isAddElement.style.color = '#1d923a';
+            isAddElement.style.display = 'block';
+            isAddElement.style.opacity = 1;
+            (function fade() {
+                if ((isAddElement.style.opacity -= .1) < 0) {
+                    isAddElement.style.display = "none";
+                } else {
+                    setTimeout(fade, 300)
+                }
+            })();
+        } else {
+            isAddElement.textContent = 'Le produit est déjà dans la liste !';
+            isAddElement.style.backgroundColor = '#e82416';
+            isAddElement.style.color = 'black';
+            isAddElement.style.padding = '4px';
+            isAddElement.style.display = 'block';
+            isAddElement.style.opacity = 1;
+            (function fade() {
+                if ((isAddElement.style.opacity -= .1) < 0) {
+                    isAddElement.style.display = 'none';
+                } else {
+                    setTimeout(fade, 300)
+                }
+            })();
+        }
+    }
 };
 
 document.addEventListener('DOMContentLoaded', app.init);

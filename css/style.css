@@ -85,8 +85,8 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     border-radius: 10px;
-    background-color: #2deb5c57;
-    color: #1d923a;
+    /* background-color: #2deb5c57;
+    color: #1d923a; */
 }
 
 .btn {
