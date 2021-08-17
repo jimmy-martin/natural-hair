@@ -43,20 +43,28 @@ const app = {
         })();
         document.querySelector('.list-container').style.display = 'block';
 
+        app.refreshListCount();
+
     },
 
     handleListProductBtnClick: function (evt) {
         let myButton = evt.target;
         let currentProductElement = myButton.closest('.product');
         document.querySelector('.list').removeChild(currentProductElement);
-        
-        if(document.querySelector('.list-container .list').hasChildNodes() === false){
+
+        if (document.querySelector('.list-container .list').hasChildNodes() === false) {
             document.querySelector('.list-container').style.display = 'none';
         }
 
+        app.refreshListCount();
+
     },
 
-    //TODO cacher 'Ma liste' quand je n'ai pas d'éléments dans ma liste
+    refreshListCount: function (evt) {
+        let listCount = document.querySelector('#list-count');
+        listCount.textContent = document.querySelector('.list').getElementsByTagName('div').length;
+        console.log(listCount.textContent);
+    },
 };
 
 document.addEventListener('DOMContentLoaded', app.init);
