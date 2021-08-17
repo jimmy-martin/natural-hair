@@ -31,7 +31,7 @@ const app = {
 
         let myProductBtnElement = myProduct.querySelector('.btn');
 
-        myProductBtnElement.textContent = 'Retirer de ma routine !';
+        myProductBtnElement.textContent = 'Retirer de ma liste !';
         myProductBtnElement.addEventListener('click', app.handleListProductBtnClick);
         document.querySelector('.list').appendChild(myProduct);
 
