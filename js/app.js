@@ -49,7 +49,7 @@ const app = {
         document.querySelector('.list').removeChild(currentProductElement);
         
         if(document.querySelector('.list-container .list').hasChildNodes() === false){
-            document.querySelector('.list-container').style.display = 'initial';
+            document.querySelector('.list-container').style.display = 'none';
         }
 
     },
