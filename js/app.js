@@ -21,6 +21,8 @@ const app = {
 
         myProduct.innerHTML = currentProductHTMLContent;
         myProduct.classList.add('product');
+        let myProductIsAddElement = myProduct.querySelector('.product-is-add');
+        myProduct.removeChild(myProductIsAddElement);
 
         let myProductBtnElement = myProduct.querySelector('.btn');
 
