@@ -98,6 +98,10 @@ body {
     outline-style: none;
 }
 
+.list-container{
+    display: none;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;

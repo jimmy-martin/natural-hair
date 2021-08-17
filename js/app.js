@@ -39,6 +39,7 @@ const app = {
                 setTimeout(fade, 300)
             }
         })();
+        document.querySelector('.list-container').style.display = 'block';
 
     },
 
@@ -46,6 +47,10 @@ const app = {
         let myButton = evt.target;
         let currentProductElement = myButton.closest('.product');
         document.querySelector('.list').removeChild(currentProductElement);
+        
+        if(document.querySelector('.list-container .list').hasChildNodes() === false){
+            document.querySelector('.list-container').style.display = 'initial';
+        }
 
     },
 
