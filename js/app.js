@@ -40,7 +40,11 @@ const app = {
         isAddElement.style.display = 'block';
         isAddElement.style.opacity = 1;
         (function fade() {
-            (isAddElement.style.opacity -= .1) < 0 ? isAddElement.style.display = "none" : setTimeout(fade, 300)
+            if ((isAddElement.style.opacity -= .1) < 0) {
+                isAddElement.style.display = "none";
+            } else {
+                setTimeout(fade, 300)
+            }
         })();
 
     },
